@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Created by cwl on 2018/8/15.
+ * CountDownLatch 等待所有线程(200)完成在执行
  */
 @Slf4j
 public class CountDownLatchExample1 {
@@ -17,6 +18,7 @@ public class CountDownLatchExample1 {
         ExecutorService exec = Executors.newCachedThreadPool();
 
        final CountDownLatch countDownLatch = new CountDownLatch(threadCount);
+
         for(int i=0; i<threadCount; i++){
             final int threadNum = i;
             exec.execute(() ->{

@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 public class CountDownLatchExample2 {
+
     private final static int threadCount= 200;
 
     public static void main(String[] args) throws Exception{
@@ -33,14 +34,14 @@ public class CountDownLatchExample2 {
                 }
             });
         }
-        //第一个参数代表等待的时间,第二个参数:时间的单位
-        countDownLatch.await(10, TimeUnit.MICROSECONDS);//保证上面的200线程都是执行完的
+        //第一个参数代表等待的时间,第二个参数:时间的单位,超过10毫秒就执行
+        countDownLatch.await(10, TimeUnit.MICROSECONDS);
         log.info("finish");
     }
 
     public static void test(int threadNum) throws Exception{
         Thread.sleep(100);
         log.info("threadNum === {}",threadNum);
-        Thread.sleep(100);
+
     }
 }

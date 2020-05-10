@@ -11,6 +11,7 @@ import java.util.concurrent.Executors;
  */
 @Slf4j
 public class CyclicBarrierExample1 {
+    //5个线程相互等待,到五个时候在执行
     private static CyclicBarrier barrier = new CyclicBarrier(5);
 
     public static void main(String[] args) throws Exception{
@@ -33,7 +34,7 @@ public class CyclicBarrierExample1 {
     public static void race(int num) throws Exception{
         Thread.sleep(1000);
         log.info(" {}is ready",num);
-        barrier.await();
+        barrier.await();//等待达到五个线程,在执行
         log.info("{} continue",num);
 
 
